@@ -15,26 +15,17 @@ To execute the `solutions.ts` file, ensure you have Node.js installed, then use 
 npx tsx solutions.ts
 
 
-
-
-Problems Solved
-Filtering even numbers from an array.
-
-Reversing a string.
-
-Using Type Guards with Union Types.
-
-Using Generics to get object properties safely.
-
-Modifying object interfaces and adding properties.
-
-Object-Oriented Programming (OOP) with Classes and Inheritance.
-
-Finding the intersection of two arrays.
+**Problems Solved**
+1. Filtering even numbers from an array.
+2. Reversing a string.
+3. Using Type Guards with Union Types.
+4. Using Generics to get object properties safely.
+5. Modifying object interfaces and adding properties.
+6. Object-Oriented Programming (OOP) with Classes and Inheritance.
+7. Finding the intersection of two arrays.
 
 
 
-Technologies Used
+**Technologies Used**
 TypeScript
-
 Node.js
