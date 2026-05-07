@@ -13,7 +13,7 @@ To execute the `solutions.ts` file, ensure you have Node.js installed, then use 
 
 ```bash
 npx tsx solutions.ts
-
+```
 
 **Problems Solved**
 1. Filtering even numbers from an array.
@@ -23,7 +23,6 @@ npx tsx solutions.ts
 5. Modifying object interfaces and adding properties.
 6. Object-Oriented Programming (OOP) with Classes and Inheritance.
 7. Finding the intersection of two arrays.
-
 
 **Technologies Used**
 TypeScript
