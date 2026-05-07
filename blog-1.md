@@ -12,6 +12,7 @@ let unpredictableData: any = "Hello, TypeScript!";
 // The compiler allows this, but it will throw an error at runtime
 unpredictableData.someNonExistentMethod(); 
 unpredictableData = 42;
+```
 
 Because the compiler turns a blind eye to any, bugs that should have been caught during development slip into production. It acts as a black hole where type safety disappears.
 
@@ -19,12 +20,12 @@ Because the compiler turns a blind eye to any, bugs that should have been caught
 The Safer Choice: unknown
 The unknown type was introduced as a type-safe counterpart to any. Like any, you can assign any value to an unknown variable. However, the crucial difference is that you cannot perform operations on an unknown value without first proving its type.
 
-
+```typescript
 let saferData: unknown = "Hello, TypeScript!";
 
 // Error: Object is of type 'unknown'.
 // saferData.toUpperCase();
-
+```
 
 TypeScript forces you to verify what the data actually is before you can use it, completely preventing accidental runtime errors.
 
@@ -33,7 +34,7 @@ To safely use an unknown variable, you must use "type narrowing." Type narrowing
 
 TypeScript understands standard JavaScript constructs like typeof and instanceof, treating them as "type guards."
 
-
+```typescript
 let rawData: unknown = "Hello, TypeScript!";
 
 // Type Narrowing using 'typeof'
@@ -44,7 +45,7 @@ if (typeof rawData === "string") {
     // Here, TypeScript knows it is a number
     console.log(rawData.toFixed(2));
 }
-
+```
 
 Conclusion
 While any might seem convenient for handling dynamic data, it introduces significant risks by disabling the compiler's safety net. By adopting unknown and utilizing type narrowing, you force your code to be defensive and predictable. This ensures that your applications remain robust, strictly typed, and free of unexpected runtime crashes.

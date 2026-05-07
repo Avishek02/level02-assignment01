@@ -14,9 +14,10 @@ interface User {
   passwordHash: string;
   createdAt: Date;
 }
-
+```
 When fetching a user profile, you shouldn't send the passwordHash to the frontend. When creating a new user, the id and createdAt fields don't exist yet. Without utility types, developers often duplicate this interface:
 
+```typescript
 // BAD: Duplicating code violates DRY
 interface UserProfile {
   id: string;
@@ -29,7 +30,7 @@ interface CreateUserPayload {
   email: string;
   passwordHash: string;
 }
-
+```
 
 
 If you ever need to update the type of username (e.g., from string to a custom UsernameType), you must update it in three different places.
@@ -38,7 +39,7 @@ Using Pick to Select Properties
 The Pick<Type, Keys> utility type creates a new type by selecting a specific set of properties from an existing interface. It is perfect when you only need a few fields from a massive master interface.
 
 
-
+```typescript
 // Creating a slice using Pick
 type UserProfile = Pick<User, "id" | "username" "email">;
 
@@ -47,14 +48,14 @@ const profile: UserProfile = {
   username: "johndoe",
   email: "john@example.com"
 };
-
+```
 
 Now, UserProfile is inherently tied to User. If the master User interface changes, UserProfile automatically inherits those changes.
 
 Using Omit to Exclude Properties
 Conversely, the Omit<Type, Keys> utility type creates a new type by taking all properties from an interface and removing the specified keys. This is highly useful when you want almost everything from a master interface except for a few restricted or auto-generated fields.
 
-
+```typescript
 // Creating a slice using Omit
 type CreateUserPayload = Omit<User, "id" | "createdAt">;
 
@@ -63,7 +64,7 @@ const newUser: CreateUserPayload = {
   email: "jane@example.com",
   passwordHash: "hashed_string"
 };
-
+```
 
 Conclusion
 By leveraging Pick and Omit, you establish a single source of truth—the master interface. Instead of manually copying and pasting properties across multiple types, you logically derive specialized slices for your API payloads, database models, and UI components. This strictly enforces the DRY principle, reduces maintenance overhead, and ensures that your type definitions stay perfectly synchronized as your application scales.
