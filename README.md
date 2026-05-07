@@ -25,5 +25,5 @@ npx tsx solutions.ts
 7. Finding the intersection of two arrays.
 
 **Technologies Used**
-TypeScript
-Node.js
+1. TypeScript
+2. Node.js
